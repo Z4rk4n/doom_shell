@@ -1,8 +1,9 @@
 function doom_shell(element, string) {
-    var string = "Print this ...| Prepare to die";
     var cursor = 0;
 
-    setInterval(print, 1000 / 30);
+    var proc = setInterval(print, 1000 / 30);
+    var open = false ;
+    var balise ;
 
     function print() {
         if (cursor < string.length) {
@@ -11,9 +12,28 @@ function doom_shell(element, string) {
                 case "|":
                     char = "<br>";
                     break;
+                case "%":
+                  if(!open) {
+                    balise = document.createElement('span');
+                    balise.style = 'color:red';
+                    element.append(balise);
+                    open = true ;
+                  } else {
+                    open = false ;
+                  }
+                  char = '' ;
+                  break ;
             }
-            element.innerHTML += char;
+            if(!open) {
+              element.innerHTML += char;
+            } else {
+              balise.innerHTML += char ;
+            }
             cursor++;
+        } else {
+          proc.cleanInterval;
         }
     }
+
+
 }

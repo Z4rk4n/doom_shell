@@ -10,13 +10,20 @@
                 font-family: monospace;
                 color: white;
             }
+
+            .hidden {
+              display:none;
+            }
         </style>
     </head>
     <body>
         <p id="cmd"></p>
+        <p class="hidden" id="print_me">
+          Prepare to die ... |ITS DOOM %SHELL% FUCKD B*TCH|%_%_%_%_%_%_%_%_%_%_%_%_%_%_%_%_%_%_%_%
+        </p>
     </body>
     <script type="text/javascript" src="doom_shell.js"></script>
     <script type="text/javascript">
-       doom_shell(document.getElementById('cmd'), "this is doom_shell ... |Prepare to die !");
+       doom_shell(document.getElementById('cmd'), document.getElementById('print_me').innerHTML);
     </script>
 </html>

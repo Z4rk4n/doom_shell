@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>x_e</title>
-        <meta charset="utf-8" />
-        <style>
-            html, body {
-                background-color: black;
-                font-weight: bold;
-                font-family: monospace;
-                color: white;
-            }
+<head>
+    <title>x_e</title>
+    <meta charset="utf-8"/>
+    <style>
+        html, body {
+            background-color: black;
+            font-weight: bold;
+            font-family: monospace;
+            color: white;
+        }
 
-            .hidden {
-              display:none;
-            }
-        </style>
-    </head>
-    <body>
-        <p id="cmd"></p>
-        <p class="hidden" id="print_me">
-          Prepare to die ... |ITS DOOM %SHELL% FUCKD B*TCH|%_%_%_%_%_%_%_%_%_%_%_%_%_%_%_%_%_%_%_%
-        </p>
-    </body>
-    <script type="text/javascript" src="doom_shell.js"></script>
-    <script type="text/javascript">
-       doom_shell(document.getElementById('cmd'), document.getElementById('print_me').innerHTML);
-    </script>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<p id="cmd"></p>
+<p class="hidden" id="print_me">
+    Prepare to die ... |ITS DOOM [red]SHELL]|
+    [cyan]__________________________]|
+    init|shell v1.0.0
+</p>
+</body>
+<script type="text/javascript" src="doom_shell.js"></script>
+<script type="text/javascript">
+    doom_shell(document.getElementById('cmd'), document.getElementById('print_me').innerHTML);
+</script>
 </html>

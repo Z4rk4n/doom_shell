@@ -1,9 +1,9 @@
 function doom_shell(element, string) {
     var cursor = 0;
 
-    var proc = setInterval(print, 1000 / 30);
-    var open = false ;
-    var balise ;
+    var proc = setInterval(print, 1000 / 60);
+    var open = false;
+    var balise;
 
     function print() {
         if (cursor < string.length) {
@@ -12,27 +12,37 @@ function doom_shell(element, string) {
                 case "|":
                     char = "<br>";
                     break;
-                case "%":
-                  if(!open) {
-                    balise = document.createElement('span');
-                    balise.style = 'color:red';
-                    element.append(balise);
-                    open = true ;
-                  } else {
+                case "[":
+                    createDoomShellElement();
+                    char='';
+                    break;
+                case "]":
+                    char = '';
                     open = false ;
-                  }
-                  char = '' ;
-                  break ;
+                    break;
             }
-            if(!open) {
-              element.innerHTML += char;
+            if (!open) {
+                element.innerHTML += char;
             } else {
-              balise.innerHTML += char ;
+                balise.innerHTML += char;
             }
             cursor++;
         } else {
-          proc.cleanInterval;
+            proc.cleanInterval;
         }
+    }
+
+    function createDoomShellElement() {
+        cursor++;
+        var color = "";
+        while (string[cursor] != ']') {
+            color += string[cursor];
+            cursor++;
+        }
+        balise = document.createElement('span');
+        balise.style = 'color:' + color;
+        element.append(balise);
+        open = true;
     }
 
 

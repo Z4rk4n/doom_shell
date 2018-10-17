@@ -34,15 +34,24 @@ function doom_shell(element, string) {
 
     function createDoomShellElement() {
         cursor++;
-        var color = "";
+        var str = "";
         while (string[cursor] != ']') {
-            color += string[cursor];
+            str += string[cursor];
             cursor++;
         }
-        balise = document.createElement('span');
-        balise.style = 'color:' + color;
-        element.append(balise);
-        open = true;
+
+        switch(str) {
+            case 'clear':
+                element.innerHTML='';
+                break;
+            default:
+                balise = document.createElement('span');
+                balise.style = 'color:' + str;
+                element.append(balise);
+                open = true;
+                break;
+        }
+
     }
 
 
